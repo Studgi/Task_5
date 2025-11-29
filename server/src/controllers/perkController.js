@@ -130,5 +130,7 @@ export async function updatePerk(req, res, next) {
 }
 // TODO 1: Implement delete a perk by ID
 export async function deletePerk(req, res, next) {
- 
+  Perk.findByIdAndDelete(req.params.id)
+    .then(() => res.status(204).end())
+    .catch(next);
 }

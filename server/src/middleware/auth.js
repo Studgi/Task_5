@@ -7,7 +7,7 @@ export function requireAuth(req, res, next) {
   if (!token) return res.status(401).json({ message: 'Missing token' });
 
   try {
-    const payload = jwt.verify(token, process.env.JWT_SECRET);
+    const payload = jwt.verify(token, "secret");
     req.user = payload;
     return next();
   } catch (err) {
